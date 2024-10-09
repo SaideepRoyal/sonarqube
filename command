@@ -39,6 +39,8 @@ sudo useradd -c "user to run SonarQube" -d  /opt/sonarqube -g sonar sonar
 sudo chown sonar:sonar /opt/sonarqube -R
 sudo vim /opt/sonarqube/conf/sonar.properties (at user credentials remove # and add for sonar.jdbc.username=sonar & sonar.jdbc.password=sonar ; at postgres remove # and add for sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube)
 sudo vim /etc/systemd/system/sonar.service (add the file)
-
-
+sudo systemctl start sonar
+sudo systemctl enable sonar
+sudo systemctl status sonar
+sudo tail -f /opt/sonarqube/logs/sonar.log (watch the log file and monitor the startup)
 
